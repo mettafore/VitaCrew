@@ -179,19 +179,35 @@ class Vitacrew():
     @task
     def assess_skin(self) -> Task:
         """Assess skin condition task"""
+        context = [
+            f"Analyze the following user's skin profile:",
+            f"Skin Type: {self.user_data['skin_type']}",
+            f"Skin Concerns: {', '.join(self.user_data['skin_concerns'])}",
+            f"Age: {self.user_data['age']}"
+        ]
+        
         task_instance = Task(
             config=self.tasks_config['beauty_specialist_tasks']['assess_skin'],
-            agent=self.beauty_specialist()
+            agent=self.beauty_specialist(),
+            context=context
         )
-        # Explicitly mark the task
-        task_instance._is_task = True
         return task_instance
 
     @task
     def design_routine(self) -> Task:
+        context = [
+            f"Design a skincare routine based on:",
+            f"Skin Type: {self.user_data['skin_type']}",
+            f"Skin Concerns: {', '.join(self.user_data['skin_concerns'])}",
+            f"Age: {self.user_data['age']}",
+            f"Stress Level: {self.user_data['stress_level']}",
+            f"Sleep Hours: {self.user_data['sleep_hours']}"
+        ]
+        
         return Task(
             config=self.tasks_config['beauty_specialist_tasks']['design_routine'],
-            agent=self.beauty_specialist()
+            agent=self.beauty_specialist(),
+            context=context
         )
 
     # @task
