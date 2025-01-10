@@ -1,0 +1,88 @@
+personal_trainer_tasks:
+  analyze_fitness:
+    description: >
+      Analyze user's fitness goals and current metrics including height, weight, and other measurements.
+      Evaluate current fitness level and identify areas for improvement.
+    expected_output: >
+      Detailed fitness assessment report with baseline metrics and recommended focus areas.
+    agent: personal_trainer
+
+  generate_workout:
+    description: >
+      Create a personalized workout plan based on user's goals, fitness level and preferences.
+      Include exercise descriptions, sets, reps and progression plan.
+    expected_output: >
+      Complete workout program with daily/weekly schedule and exercise details.
+    agent: personal_trainer
+
+nutritionist_tasks:
+  create_meal_plan:
+    description: >
+      Design customized meal plans aligned with user's goals, preferences and dietary requirements.
+      Calculate macro/micronutrient needs and optimize meal timing.
+    expected_output: >
+      Weekly meal plan with recipes, portions and nutritional breakdown.
+    agent: nutritionist
+
+  generate_grocery_list:
+    description: >
+      Create smart shopping lists based on meal plans. Include ingredient quantities
+      and recommended brands/alternatives.
+    expected_output: >
+      Organized grocery list categorized by food groups and store sections.
+    agent: nutritionist
+
+beauty_specialist_tasks:
+  assess_skin:
+    description: >
+      Evaluate skin type, concerns and current skincare routine. Identify areas
+      needing attention and improvement.
+    expected_output: >
+      Comprehensive skin assessment with type classification and concern areas.
+    agent: beauty_specialist
+
+  design_routine:
+    description: >
+      Create personalized skincare routine with product recommendations and
+      application instructions.
+    expected_output: >
+      Morning and evening skincare regimens with product details and usage guidelines.
+    agent: beauty_specialist
+
+# health_analyst_tasks:
+#   analyze_data:
+#     description: >
+#       Process and integrate data from all wellness domains. Identify patterns
+#       and generate insights.
+#     expected_output: >
+#       Data analysis report with key findings and actionable recommendations.
+#     agent: health_analyst
+
+#   generate_report:
+#     description: >
+#       Create comprehensive progress reports combining insights from all specialists.
+#       Track metrics against goals.
+#     expected_output: >
+#       Detailed wellness report with progress tracking and improvement suggestions.
+#     agent: health_analyst
+
+design_specialist_tasks:
+  format_plans:
+    description: >
+      Create a comprehensive PDF document integrating all wellness plans including nutrition,
+      fitness, and skincare routines. Ensure clear organization and visual hierarchy
+      for easy readability.
+    expected_output: >
+      Professional PDF document containing consolidated wellness plans with consistent
+      formatting and branding.
+    agent: design_specialist
+
+  create_visuals:
+    description: >
+      Design supporting visuals and infographics to illustrate key components of the
+      wellness plans, including workout demonstrations, meal portion guides, and
+      skincare routine steps.
+    expected_output: >
+      Set of clear visual aids and infographics that complement and enhance understanding
+      of the wellness plans in the PDF.
+    agent: design_specialist
