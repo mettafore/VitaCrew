@@ -1,13 +1,29 @@
 [project]
 name = "vitacrew"
 version = "0.1.0"
-description = "Add your description here"
+description = "VitaCrew using crewAI"
 readme = "README.md"
-requires-python = ">=3.9"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.13"
 dependencies = [
-    "crewai>=0.5.0",
+    "crewai[tools]>=0.95.0,<1.0.0",
+    "langchain-anthropic>=0.1.4",
     "pydantic>=2.10.4",
     "pytest>=8.3.4",
     "pytest-asyncio>=0.25.2",
     "streamlit>=1.41.1",
 ]
+
+[project.scripts]
+vitacrew = "vitacrew.main:run"
+run_crew = "vitacrew.main:run"
+train = "vitacrew.main:train"
+replay = "vitacrew.main:replay"
+test = "vitacrew.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"

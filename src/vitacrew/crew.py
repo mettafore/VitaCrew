@@ -1,5 +1,6 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
+from langchain_anthropic import Anthropic
 from vitacrew.tools.custom_tool import (
     BMRCalculator,
     MacroCalculator,
@@ -224,11 +225,13 @@ class Vitacrew():
     @crew
     def crew(self) -> Crew:
         """Creates the Vitacrew crew"""
+        llm = Anthropic(model="claude-3-5-sonnet-20240620")
         return Crew(
             agents=self.agents,
             tasks=self.tasks,
             process=Process.sequential,
-            verbose=True
+            verbose=True,
+            llm=llm
         )
 
     def collect_user_inputs(self, user_inputs: UserInputs) -> None:
