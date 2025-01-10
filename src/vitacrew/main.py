@@ -4,6 +4,7 @@ import warnings
 
 from vitacrew.crew import Vitacrew
 
+from crewai import Crew
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
 # This main file is intended to be a way for you to run your
@@ -16,9 +17,30 @@ def run():
     Run the crew.
     """
     inputs = {
-        'topic': 'AI LLMs'
+        'name': "Test User",
+        'age': 30,
+        'gender': "MALE", 
+        'height': 175.0,
+        'weight': 70.0,
+        'waist_circumference': 80.0,
+        'hip_circumference': 90.0,
+        'fitness_objectives': ["weight loss", "muscle gain"],
+        'dietary_requirements': ["none"],
+        'skin_type': "DRY",
+        'skin_concerns': ["none"],
+        'sleep_hours': 7.5,
+        'stress_level': "MODERATE",
+        'activity_level': "MODERATE"
     }
-    Vitacrew().crew().kickoff(inputs=inputs)
+    # Vitacrew().crew().kickoff(inputs=inputs)
+    crew = Crew(
+        name="vitacrew",
+        agents=[Vitacrew().beauty_specialist()],
+        tasks=[Vitacrew().assess_skin()],
+        inputs=inputs
+    )
+    crew.kickoff()
+
 
 
 def train():
